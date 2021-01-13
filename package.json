@@ -1,0 +1,25 @@
+{
+  "name": "migration-patch",
+  "version": "1.0.0",
+  "description": "converts directus 8 databases to directus 9",
+  "main": "patch.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erik-konrad/directus-9-migration-patch.git"
+  },
+  "keywords": [
+    "directus",
+    "migration",
+    "database",
+    "patch"
+  ],
+  "author": "Erik Konrad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erik-konrad/directus-9-migration-patch/issues"
+  },
+  "homepage": "https://github.com/erik-konrad/directus-9-migration-patch#readme"
+}

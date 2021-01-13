@@ -1,0 +1,16 @@
+{
+    "db": {
+        "hostname": "db",
+        "database": "directus",
+        "username": "db",
+        "password": "db"
+    },
+    "mapping": {
+        "oneFile": {
+            "zbr_cases": "zbr_hero_image"
+        },
+        "junctionTables": {
+            "zbr_case_content_directus_files": "directus_files_id"
+        }
+    }
+}
