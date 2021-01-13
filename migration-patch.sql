@@ -493,3 +493,82 @@ UPDATE directus_fields
     set options = NULL
     WHERE special = "m2m" OR special = "o2m" OR special = "m2o";
 
+#
+# cleanup collection list in directus_roles and remove old collection lists
+#
+
+UPDATE directus_roles
+    SET collection_list = NULL;
+
+#
+# uuid v4 function
+#
+
+-- Change delimiter so that the function body doesn't end the function declaration
+DELIMITER //
+
+CREATE FUNCTION uuid_v4()
+    RETURNS CHAR(36)
+BEGIN
+    -- Generate 8 2-byte strings that we will combine into a UUIDv4
+    SET @h1 = LPAD(HEX(FLOOR(RAND() * 0xffff)), 4, '0');
+    SET @h2 = LPAD(HEX(FLOOR(RAND() * 0xffff)), 4, '0');
+    SET @h3 = LPAD(HEX(FLOOR(RAND() * 0xffff)), 4, '0');
+    SET @h6 = LPAD(HEX(FLOOR(RAND() * 0xffff)), 4, '0');
+    SET @h7 = LPAD(HEX(FLOOR(RAND() * 0xffff)), 4, '0');
+    SET @h8 = LPAD(HEX(FLOOR(RAND() * 0xffff)), 4, '0');
+
+    -- 4th section will start with a 4 indicating the version
+    SET @h4 = CONCAT('4', LPAD(HEX(FLOOR(RAND() * 0x0fff)), 3, '0'));
+
+    -- 5th section first half-byte can only be 8, 9 A or B
+    SET @h5 = CONCAT(HEX(FLOOR(RAND() * 4 + 8)),
+                LPAD(HEX(FLOOR(RAND() * 0x0fff)), 3, '0'));
+
+    -- Build the complete UUID
+    RETURN LOWER(CONCAT(
+        @h1, @h2, '-', @h3, '-', @h4, '-', @h5, '-', @h6, @h7, @h8
+    ));
+END
+//
+-- Switch back the delimiter
+DELIMITER ;
+
+
+#
+# change directus_files from id to uuid
+#
+
+ALTER TABLE directus_files
+    ADD deprecated_id int(11);
+
+UPDATE directus_files
+    SET deprecated_id = id;
+    
+UPDATE directus_files
+	SET id = uuid_v4();
+
+UPDATE directus_users 
+   SET avatar=(SELECT id FROM directus_files WHERE directus_users.avatar=directus_files.deprecated_id);
+
+#
+# change directus_users and roles from id to uuid
+#
+
+ALTER TABLE directus_users
+    ADD deprecated_id int(11);
+
+UPDATE directus_users
+    SET deprecated_id = id;
+
+ALTER TABLE directus_roles
+    ADD deprecated_id int(11);
+
+UPDATE directus_roles
+    SET deprecated_id = id;
+
+UPDATE directus_users
+	SET id = uuid_v4();
+
+UPDATE directus_roles
+	SET id = uuid_v4();
