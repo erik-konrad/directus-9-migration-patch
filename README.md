@@ -17,8 +17,8 @@ The table configuration in the config.json has two sections. The first section "
 
 ## Credits
 
-[Zebra | Group](https://www.zebra.de)
-[Sebastian Laube](https://github.com/bitstarr)
+[Zebra | Group](https://www.zebra.de)  
+[Sebastian Laube](https://github.com/bitstarr)  
 Danilo Woeschka
 
 
