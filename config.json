@@ -7,10 +7,17 @@
     },
     "mapping": {
         "oneFile": {
-            "zbr_cases": "zbr_hero_image"
+            "zbr_cases": "zbr_hero_image",
+            "zbr_blogpost": "zbr_hero_image",
+            "zbr_content_teaser": "zbr_teaser_image",
+            "gastronomy": "logo|picture",
+            "zbr_customer": "zbr_image",
+            "zbr_employees": "zbr_image",
+            "zbr_slider_items": "zbr_image"
         },
         "junctionTables": {
-            "zbr_case_content_directus_files": "directus_files_id"
+            "zbr_case_content_directus_files": "directus_files_id",
+            "zbr_blog_content2directus_files": "directus_files_id"
         }
     }
 }

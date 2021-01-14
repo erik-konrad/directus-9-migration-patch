@@ -54,7 +54,11 @@ async function injectSqlPatch() {
 async function refactorOneFileReferences() {
     console.log("Start refactoring one file references");
     Object.entries(mapping.oneFile).forEach(function(data) {
-        updateOneFileReference(data[0], data[1]);
+        let fields = data[1].split('|');
+        fields.forEach(function(field) {
+            updateOneFileReference(data[0], field);
+        });
+        
     });
 }
 
