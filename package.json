@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/erik-konrad/directus-9-migration-patch/issues"
   },
-  "homepage": "https://github.com/erik-konrad/directus-9-migration-patch#readme"
+  "homepage": "https://github.com/erik-konrad/directus-9-migration-patch#readme",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
 }

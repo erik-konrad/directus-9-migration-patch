@@ -2,6 +2,7 @@
     "db": {
         "hostname": "db",
         "database": "directus",
+        "port": 3306,
         "username": "db",
         "password": "db"
     },

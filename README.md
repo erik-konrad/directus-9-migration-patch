@@ -7,6 +7,7 @@ This is a migration patch for upgrading Directus 8 databases to Directus 9. The 
 
 ## Installation
 * clone the repository to your migration machine with the database to migrate
+* run "npm install"
 * configure the patch process in the config.json
 * run "node patch.js" in the patch folder
 * reset your password

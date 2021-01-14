@@ -13,7 +13,8 @@ let sqlPatch = fs.readFileSync('data/migration-patch.sql').toString();
 
 // create database connection
 const db = mysql.createConnection({
-	host: settings.db.hostname,
+    host: settings.db.hostname,
+    port: settings.db.port,
 	user: settings.db.username,
 	password: settings.db.password,
 	database: settings.db.database,
