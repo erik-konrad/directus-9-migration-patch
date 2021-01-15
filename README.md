@@ -14,7 +14,7 @@ This is a migration patch for upgrading Directus 8 databases to Directus 9. The 
 
 ## Table configuration
 
-The table configuration in the config.json has two sections. The first section "oneFile" is for custom one file table relations. the key means the table and the value is the field with with the file relation. Same in "junctionTables". If you have multiple file relations in tables, split it with a pipe.
+The table configuration in the config.json has two sections. The first section "oneFile" is for custom one file table relations. The key means the table and the value is the field with the file relation. Same in "junctionTables". If you have multiple file relations in tables, split it with a pipe.
 
 ## Credits
 
