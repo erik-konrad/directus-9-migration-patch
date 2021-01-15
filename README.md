@@ -20,7 +20,7 @@ The table configuration in the config.json has two sections. The first section "
 
 [Zebra | Group](https://www.zebra.de)  
 [Sebastian Laube](https://github.com/bitstarr)  
-Danilo Woeschka
+[Danilo Woeschka](https://github.com/danilo-woeschka-zebra)
 
 
 ## Disclaimer
