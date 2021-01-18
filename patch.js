@@ -94,13 +94,7 @@ async function updateJunctionTables(table, field) {
         if (err){
              throw err;
         }else{
-            console.log("Junction tables altered.");
-            done();
+            console.log("Junction tables altered."); 
         }
     });
-}
-
-function done() {
-    console.log('all done');
-    process.exit();
 }
